@@ -1,23 +1,61 @@
-
-
-const App = () => {
- 
-  const Arreglo=[{
-    name:'Luis Rubi',
-    age:20
-
-  },
-  {
-    name:'Raul',
-    age:40
-  }]
+const Header = (props) => {
+  
   return (
+    <h1>{props.name}</h1>
+  )
+}
+const Content = (props) =>{
+  if(props.name === 'Fundamentals of React'){
+   
+    return (
+      <p>
+        {props.name} {props.exercises}
+      </p>
+    )
+  }
+  if(props.name === 'Using props to pass data'){
     
-    <div>
-      <h1>Greetings</h1>
-      <p>{Arreglo[0].name} {Arreglo[0].age}</p>
-      <p>{Arreglo[1].name} {Arreglo[1].age}</p>
+    return (
+      <p>
+        {props.name} {props.exercises}
+      </p>
+    )
+  }
+  if(props.name === 'State of a component'){
+   
+    return (
+      <p>
+        {props.name} {props.exercises}
+      </p>
+    )
+  }
+  
+}
 
+const Total = (props) =>{
+  return(
+    <p>{props.exercises1+props.exercises2+props.exercises3}</p>
+
+  )
+}
+const App = () => {
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
+  //<Header course={course} />
+  //<Content ... />
+  //<Total ... />
+  return (
+    <div>
+      <Header name={course} />
+      <Content name={part1} exercises={exercises1}/>
+      <Content name={part2} exercises={exercises2}/>
+      <Content name={part3} exercises={exercises3}/>
+      <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
     </div>
   )
 }
